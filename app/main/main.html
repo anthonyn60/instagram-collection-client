@@ -1,0 +1,43 @@
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <h1 class="header center orange-text">Instagram Collections</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Create collections of Instagram posts based on tags and dates</h5>
+      </div>
+      <div class="row center">
+        <a href="#!/new_collection" class="btn-large waves-effect waves-light orange modal-trigger">Create Collection</a>
+      </div>
+      <br><br>
+    </div>
+  </div>
+<div ng-if="collections != null">
+  <div class="section">
+    <div class="container">
+      <div class="row center">
+        <h5 class="header col s12 light">Previous Collections</h5>
+      </div>
+      <div class="row center">
+        <div class="col s12 m4" ng-repeat="collection in collections">
+            <div class="card">
+              <div class="card-image">
+                <img ng-src="{{collection.media_link}}" src="images/default.jpg">
+              </div>
+              <span class="card-title">{{collection.name || "Untitled"}}</span>
+              <div class="card-content">
+                <p class="left-align">Tag: {{collection.tag}}</p>
+                <p class="left-align">{{collection.start_time * 1000 | date:'MM-dd-yyyy'}} to {{collection.end_time * 1000 | date:'MM-dd-yyyy'}}</p>
+              </div>
+              <div class="card-action">
+                <div ng-if="collection.media_link != null">
+                  <a href="#!/collection?id={{collection.id}}" class="blue-text">View</a>
+                </div>
+                <div ng-if="collection.media_link == null">
+                  No photos to view
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>

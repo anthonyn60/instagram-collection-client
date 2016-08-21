@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Instagram Collections</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  <link rel="stylesheet" href="app.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body ng-app="igCollectionApp">
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <div class="navbar-fixed">
+  <nav class="blue" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#!/" class="brand-logo">Instagram Collections</a>
+      <ul class="right hide-on-small-only">
+        <li><a href="#!/new_collection">Create Collection</a></li>
+      </ul>
+    </div>
+  </nav>
+  </div>
+
+  <div ng-view></div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script> 
+  <script src="app.js"></script>
+  <script src="main/main.js"></script>
+  <script src="collection/collection.js"></script>
+  <script src="new_collection/new_collection.js"></script>
+</body>
+</html>

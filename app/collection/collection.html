@@ -1,0 +1,64 @@
+<div class="row container center hide-on-med-and-up">
+  <br>
+        <a href="#!/new_collection" class="btn-large waves-effect waves-light orange modal-trigger">Create Collection</a>
+      </div>
+
+<div ng-if="collection != null">
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <h1 class="header center orange-text">#{{collection.tag}}</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">{{collection.name}}</h5>
+        <h5 class="header col s12 light">{{collection.start_time * 1000 | date:'MM-dd-yyyy'}} to {{collection.end_time * 1000 | date:'MM-dd-yyyy'}}</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="row center">
+        <div class="col s12 m4" ng-repeat="post in collection.posts">
+            <div class="card">
+              <div class="card-image">
+                <div ng-if="post.media_type == 'image'">
+                  <img ng-src="{{post.media}}" class="responsive-img card-media">
+                </div>
+                <div ng-if="post.media_type == 'video'">
+                  <video class="responsive-video card-media" controls>
+                     <source src="{{post.media | trusted}}" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <div class="card-content left-align">
+                <p>User: {{post.username}}</p>
+                <p>Tag date: {{post.tag_time ? (post.tag_time * 1000 | date:'MM-dd-yyyy') : 'Unknown'}}</p>
+              </div>
+              <div class="card-action">
+                <a href="{{post.insta_link}}" class="blue-text center">Link</a>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="row center" ng-show="more && !isLoading">
+        <button class="btn orange" ng-click="loadMore()">Load More</button>
+      </div>
+      <div class="row center" ng-show="isLoading">
+        <div class="preloader-wrapper small active">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div ng-if="collection == null">
+    <h1 class="header center orange-text">Loading...</h1>
+  </div>

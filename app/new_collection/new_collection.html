@@ -1,0 +1,44 @@
+ <div class="container">       
+        <h4>Create Collection</h4>
+        <form novalid ng-submit="submit(newCollection)" class="simple-form">
+          <div class="row valign-wrapper">
+            <div class="col s12 m6 input-field">
+              <p>Collection Name</p>
+              <input id="name" type="text" ng-model="newCollection.name">
+            </div>
+            <div class="col s12 m6 input-field">
+              <p>Tag (Leave out the # symbol)</p>
+              <input id="tag" type="text" class="validate" ng-model="newCollection.tag">
+            </div>
+          </div>
+          <div class="row valign-wrapper">
+            <div class="col s12 m6 input-field">
+              <p>Start Date</p>
+              <input id="start_time" type="date" ng-model="newCollection.start_time">
+            </div>
+            <div class="col s12 m6 input-field">
+              <p>End Date</p>
+              <input id="end_time" type="date" ng-model="newCollection.end_time">
+            </div>
+          </div>
+          <div class="row valign-wrapper" ng-show="!isLoading">
+            <button class="btn waves-effect waves-light orange" type="submit" name="action" id="submit_button">Submit
+            </button>
+          </div>
+          <div class="row valign-wrapper" ng-show="isLoading">
+              <div class="preloader-wrapper small active">
+              <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
