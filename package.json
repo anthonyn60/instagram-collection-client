@@ -19,7 +19,7 @@
   "scripts": {
 
     "prestart": "npm install",
-    "start": "http-server ./ -p ${PORT:=8000} -c-1",
+    "start": "http-server ./app -p ${PORT:=8000} -c-1",
 
     "pretest": "npm install",
 
