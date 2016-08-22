@@ -24,7 +24,11 @@ angular.module('igCollectionApp.main', ['ngRoute'])
     $scope.current_page = $scope.current_page + 1;
     $scope.isLoading = true;
     $http.get('http://instagram-collection-backend.herokuapp.com/api/v1/collections' + '?page=' + $scope.current_page).then(function successCallback(response) {
-      $scope.collections = $scope.collections.concat(response.data);
+      if(response.data.length > 0){
+        $scope.collections = $scope.collections.concat(response.data);
+      } else {
+        $scope.more = false;
+      }
       $scope.isLoading = false;
     }, function errorCallback(response){
       $scope.more = false;
