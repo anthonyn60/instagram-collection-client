@@ -24,6 +24,7 @@ angular.module('igCollectionApp.collection', ['ngRoute'])
   $http.get('http://localhost:3000/api/v1/collections/' + $scope.id).then(function successCallback(response) {
     $scope.collection = response.data;
     $scope.pages = response.data.current_count / 9;
+    if($scope.collection.get_next_url == "No more") $scope.more = false;
   }, function errorCallback(response){
     $location.path("/");
   });
