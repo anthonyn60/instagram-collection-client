@@ -24,7 +24,7 @@
                   <img ng-src="{{post.media}}" class="responsive-img card-media">
                 </div>
                 <div ng-if="post.media_type == 'video'">
-                  <video class="responsive-video card-media" controls>
+                  <video class="responsive-video card-video" controls>
                      <source src="{{post.media | trusted}}" type="video/mp4">
                   </video>
                 </div>
