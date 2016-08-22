@@ -23,7 +23,7 @@ angular.module('igCollectionApp.new_collection', ['ngRoute'])
               "name": newCollection.name
             };
             $scope.isLoading = true;
-            $http.post('http://localhost:3000/api/v1/collections', collectionObj).then(function successCallback(response) {
+            $http.post('http://instagram-collection-backend.herokuapp.com/api/v1/collections', collectionObj).then(function successCallback(response) {
               $window.location.href = "#!/collection?id=" + response.data.id;
             },
             function errorCallback(response){

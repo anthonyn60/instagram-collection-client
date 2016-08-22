@@ -14,14 +14,14 @@ angular.module('igCollectionApp.main', ['ngRoute'])
   $scope.more = true;
   $scope.current_page = 1;
   $scope.isLoading = false;
-  $http.get('http://localhost:3000/api/v1/collections').then(function successCallback(response) {
+  $http.get('http://instagram-collection-backend.herokuapp.com/api/v1/collections').then(function successCallback(response) {
     $scope.collections = response.data;
     $scope.isMainLoading = false;
   });
   $scope.loadMore = function() {
     $scope.current_page = $scope.current_page + 1;
     $scope.isLoading = true;
-    $http.get('http://localhost:3000/api/v1/collections' + '?page=' + $scope.current_page).then(function successCallback(response) {
+    $http.get('http://instagram-collection-backend.herokuapp.com/api/v1/collections' + '?page=' + $scope.current_page).then(function successCallback(response) {
       $scope.collections = $scope.collections.concat(response.data);
       $scope.isLoading = false;
     }, function errorCallback(response){

@@ -21,7 +21,7 @@ angular.module('igCollectionApp.collection', ['ngRoute'])
   $scope.current_page = 1;
   $scope.more = true;
   $scope.isLoading = false;
-  $http.get('http://localhost:3000/api/v1/collections/' + $scope.id).then(function successCallback(response) {
+  $http.get('http://instagram-collection-backend.herokuapp.com/api/v1/collections/' + $scope.id).then(function successCallback(response) {
     $scope.collection = response.data;
     $scope.pages = response.data.current_count / 9;
     if($scope.collection.get_next_url == "No more") $scope.more = false;
@@ -32,7 +32,7 @@ angular.module('igCollectionApp.collection', ['ngRoute'])
   $scope.loadMore = function() {
     $scope.current_page = $scope.current_page + 1;
     $scope.isLoading = true;
-    $http.get('http://localhost:3000/api/v1/collections/' + $scope.id + '?page=' + $scope.current_page).then(function successCallback(response) {
+    $http.get('http://instagram-collection-backend.herokuapp.com/api/v1/collections/' + $scope.id + '?page=' + $scope.current_page).then(function successCallback(response) {
       $scope.collection.posts = $scope.collection.posts.concat(response.data.posts);
       $scope.isLoading = false;
     }, function errorCallback(response){
