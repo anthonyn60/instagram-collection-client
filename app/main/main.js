@@ -17,6 +17,8 @@ angular.module('igCollectionApp.main', ['ngRoute'])
   $http.get('http://instagram-collection-backend.herokuapp.com/api/v1/collections').then(function successCallback(response) {
     $scope.collections = response.data;
     $scope.isMainLoading = false;
+  }, function errorCallback(response) {
+    $scope.isMainLoading = false;
   });
   $scope.loadMore = function() {
     $scope.current_page = $scope.current_page + 1;
