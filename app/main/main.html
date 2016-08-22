@@ -31,7 +31,10 @@
                 <div ng-if="collection.media_link != null">
                   <a href="#!/collection?id={{collection.id}}" class="blue-text">View</a>
                 </div>
-                <div ng-if="collection.media_link == null">
+                <div ng-if="collection.media_link == null && collection.next_url != 'No more'">
+                  <a href="#!/" class="blue-text">Posts Still Loading</a>
+                </div>
+                <div ng-if="collection.media_link == null && collection.next_url == 'No more'">
                   No photos to view
                 </div>
               </div>
